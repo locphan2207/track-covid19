@@ -1,6 +1,11 @@
 import { combineReducers } from "redux"
-import { SET_COUNTRIES, SET_SUMMARY, UPDATE_REQUEST_STATUS } from "./actions"
-import data from "../data/factory"
+import {
+  SET_COUNTRIES,
+  SET_SUMMARY,
+  UPDATE_REQUEST_STATUS,
+  ADD_GRAPH_DATA,
+} from "./actions"
+import data from "../data/summaryFactory"
 
 const initialCountries = data["Countries"] //{}
 const countriesReducer = (state = initialCountries, action) => {
@@ -26,6 +31,18 @@ const summaryReducer = (state = initialSummary, action) => {
   }
 }
 
+const initialGraphData = {}
+const graphDataReducer = (state = initialGraphData, action) => {
+  switch (action.type) {
+    case ADD_GRAPH_DATA: {
+      const data = action.payload
+      return { ...state, ...data }
+    }
+    default:
+      return state
+  }
+}
+
 const initialRequestStatuses = {}
 const requestStatusReducer = (state = initialRequestStatuses, action) => {
   switch (action.type) {
@@ -41,5 +58,6 @@ const requestStatusReducer = (state = initialRequestStatuses, action) => {
 export default combineReducers({
   countries: countriesReducer,
   summary: summaryReducer,
+  graphData: graphDataReducer,
   requestStatuses: requestStatusReducer,
 })

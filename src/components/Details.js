@@ -3,11 +3,13 @@ import { connect } from "react-redux"
 
 import "./Details.css"
 
+import Graph from "./shared/Graph"
+
 function Details({ countries }) {
   const [selected, setSelected] = useState({
-    Country: "...",
-    CountryCode: "...",
-    Slug: "...",
+    Country: "",
+    CountryCode: "",
+    Slug: "",
     NewConfirmed: 0,
     TotalConfirmed: 0,
     NewDeaths: 0,
@@ -20,7 +22,7 @@ function Details({ countries }) {
   const sortedCountries = useMemo(() => sortCountries(countries), [countries])
 
   useEffect(() => {
-    if (selected["Country"] === "...") {
+    if (!selected["Country"]) {
       setSelected(sortedCountries[0])
     }
   }, [sortedCountries])
@@ -63,7 +65,7 @@ function Details({ countries }) {
           ))}
         </div>
         <div className="graph">
-          <h6>Total Confirmed</h6>
+          <Graph selected={selected} />
         </div>
       </div>
     </div>
@@ -87,8 +89,8 @@ const sortCountries = (countries) => {
 const titleToValue = [
   ["Country", "Country"],
   ["TotalConfirmed", "Total Confirmed"],
-  ["TotalRecovered", "Total Confirmed"],
-  ["TotalDeaths", "Total Confirmed"],
+  ["TotalRecovered", "Total Recovered"],
+  ["TotalDeaths", "Total Death"],
   ["NewConfirmed", "New Confirmed"],
   ["NewRecovered", "New Recovered"],
   ["NewDeaths", "New Death"],
