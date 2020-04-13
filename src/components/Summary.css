@@ -3,7 +3,7 @@
   grid-area: summary;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 1fr;
-  column-gap: 10rem;
+  justify-content: space-around;
 }
 
 .summary-card {

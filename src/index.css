@@ -137,6 +137,7 @@ html {
   overflow-x: hidden;
   font-size: 1px;
   color: #1a1053;
+  background-color: #f9fcff;
 }
 
 body {
@@ -165,4 +166,5 @@ html {
 
 #root {
   width: max(80vw, 1200px);
+  margin: 0 auto;
 }
