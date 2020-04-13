@@ -9,6 +9,8 @@ function Menu() {
       <div className="menu">
         <div className="menu-home">
           <h2>Home</h2>
+          <h2>News</h2>
+          <h2>Symptoms</h2>
         </div>
       </div>
     </>

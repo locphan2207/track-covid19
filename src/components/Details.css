@@ -1,3 +1,87 @@
 .details {
   grid-area: details;
+  background-color: #f9fcff;
+  padding: 20rem;
+}
+
+.inner-container {
+  height: 100%;
+  display: grid;
+  grid-template-areas:
+    "search info"
+    "list info"
+    "list graph";
+  grid-template-columns: 2fr 5fr;
+  grid-template-rows: min-content 1fr 1fr;
+  background-color: #ffffff;
+  border-radius: 20rem;
+  padding: 20rem;
+  box-shadow: 2rem 2rem 10rem 0rem #2e2d2d18;
+}
+
+.search {
+  background-color: #f0f3f7;
+  border-radius: 20rem;
+  padding: 10rem;
+  margin: 10rem;
+}
+
+.search > input {
+  border: none;
+  background-image: none;
+  background-color: transparent;
+  color: #817c9b;
+}
+
+.list-container {
+  grid-area: list;
+  /* margin: 0 10rem; */
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.list {
+  position: absolute;
+  top: 10rem;
+  left: 10rem;
+}
+
+.list-item {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  column-gap: 3rem;
+}
+
+.list-case-num {
+  font-size: 15rem;
+  text-align: left;
+  font-weight: 500;
+}
+.list-name {
+  font-size: 15rem;
+  color: #817c9b;
+  text-align: left;
+}
+
+.info {
+  grid-area: info;
+  background-color: #ffffff;
+  display: grid;
+  grid-template-columns: min-content min-content;
+  grid-template-rows: min-content;
+}
+
+.info > h6 {
+  font-size: 15rem;
+  font-weight: 500;
+}
+
+.info > p {
+  font-size: 20rem;
+}
+
+.graph {
+  grid-area: graph;
+  background-color: #ffffff;
 }

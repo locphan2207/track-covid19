@@ -1,6 +1,5 @@
 .fill-menu {
   grid-area: fill-menu;
-  background-color: #1a1053;
 }
 
 .menu {
@@ -11,4 +10,5 @@
 .menu-home > h2 {
   font-size: 20rem;
   color: #f9fcff;
+  margin: 30rem;
 }

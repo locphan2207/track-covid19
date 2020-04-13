@@ -1,9 +1,10 @@
 .App {
   display: grid;
   grid-template-areas:
-    "fill-menu header extra"
+    ". header extra"
     "menu summary extra"
     "menu details extra";
-  grid-template-columns: 1fr 3fr 2fr;
-  grid-template-rows: 1fr 1fr auto-fill;
+  grid-template-columns: 1fr 5fr 2fr;
+  grid-template-rows: min-content min-content 1fr;
+  height: 100%;
 }

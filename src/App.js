@@ -13,7 +13,7 @@ import Extra from "./components/Extra"
 
 function App({ fetchCountries }) {
   useEffect(() => {
-    fetchCountries()
+    // fetchCountries()
   }, [])
 
   return (

@@ -1,8 +1,8 @@
 import { combineReducers } from "redux"
-
 import { SET_COUNTRIES, SET_SUMMARY, UPDATE_REQUEST_STATUS } from "./actions"
+import data from "../data/factory"
 
-const initialCountries = {}
+const initialCountries = data["Countries"] //{}
 const countriesReducer = (state = initialCountries, action) => {
   switch (action.type) {
     case SET_COUNTRIES: {
@@ -14,7 +14,7 @@ const countriesReducer = (state = initialCountries, action) => {
   }
 }
 
-const initialSummary = {}
+const initialSummary = data["Global"] //{}
 const summaryReducer = (state = initialSummary, action) => {
   switch (action.type) {
     case SET_SUMMARY: {

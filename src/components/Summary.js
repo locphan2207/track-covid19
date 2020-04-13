@@ -25,23 +25,31 @@ function Summary({ summary }) {
     <div className="summary">
       <div className="summary-card">
         <h3>Total</h3>
-        <p>{totalConfirmed}</p>
-        <small>{getIncreasePercent(newConfirmed, totalConfirmed)}</small>
+        <p>{totalConfirmed || "..."}</p>
+        {totalConfirmed && (
+          <small>{getIncreasePercent(newConfirmed, totalConfirmed)}</small>
+        )}
       </div>
       <div className="summary-card">
         <h3>Active</h3>
-        <p>{totalActive}</p>
-        <small>{getIncreasePercent(newActive, totalActive)}</small>
+        <p>{totalActive || "..."}</p>
+        {totalActive && (
+          <small>{getIncreasePercent(newActive, totalActive)}</small>
+        )}
       </div>
       <div className="summary-card">
         <h3>Recovered</h3>
-        <p>{totalRecovered}</p>
-        <small>{getIncreasePercent(newRecovered, totalRecovered)}</small>
+        <p>{totalRecovered || "..."}</p>
+        {totalRecovered && (
+          <small>{getIncreasePercent(newRecovered, totalRecovered)}</small>
+        )}
       </div>
       <div className="summary-card">
         <h3>Death</h3>
-        <p>{totalDeaths}</p>
-        <small>{getIncreasePercent(newDeaths, totalDeaths)}</small>
+        <p>{totalDeaths || "..."}</p>
+        {totalDeaths && (
+          <small>{getIncreasePercent(newDeaths, totalDeaths)}</small>
+        )}
       </div>
     </div>
   )

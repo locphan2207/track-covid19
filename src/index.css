@@ -137,7 +137,8 @@ html {
   overflow-x: hidden;
   font-size: 1px;
   color: #1a1053;
-  background-color: #f9fcff;
+
+  background-color: #f8f9fe;
 }
 
 body {
@@ -165,6 +166,10 @@ html {
 }
 
 #root {
-  width: max(80vw, 1200px);
+  width: max(80vw, 1400px);
+  height: 100vh;
+  overflow: hidden;
   margin: 0 auto;
+  background-color: #1a1053;
+  border-radius: 2vw;
 }
