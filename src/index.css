@@ -135,6 +135,7 @@ html {
   scroll-behavior: smooth;
   max-width: 100vw;
   overflow-x: hidden;
+  font-size: 1px;
 }
 
 body {
@@ -163,5 +164,4 @@ html {
 
 #root {
   width: max(80vw, 1200px);
-  font-size: 1px;
 }

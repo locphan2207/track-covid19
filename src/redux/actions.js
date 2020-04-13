@@ -2,13 +2,14 @@ import { fetchCountriesRequest } from "../api"
 
 export const SET_COUNTRIES = "SET_COUNTRIES"
 export const UPDATE_COUNTRIES = "UPDATE_COUNTRIES"
+export const SET_SUMMARY = "SET_SUMMARY"
 export const UPDATE_REQUEST_STATUS = "UPDATE_REQUEST_STATUS"
 
 export const setCountries = (countries) => {
   return {
     type: SET_COUNTRIES,
     payload: {
-      countries,
+      ...countries,
     },
   }
 }
@@ -22,22 +23,34 @@ export const updateCountries = (country) => {
   }
 }
 
+export const setSummary = (summary) => {
+  return {
+    type: SET_SUMMARY,
+    payload: {
+      ...summary,
+    },
+  }
+}
+
 export const updateRequestStatus = (status) => {
   return {
     type: UPDATE_REQUEST_STATUS,
     payload: {
-      status,
+      ...status,
     },
   }
 }
 
 export const fetchCountries = () => async (dispatch) => {
   dispatch(updateRequestStatus({ ["fetchCountries"]: { loading: true } }))
+
   const responseJson = await fetchCountriesRequest()
   const countriesObj = {}
   for (const country of responseJson["Countries"]) {
     countriesObj[country["Slug"]] = country
   }
+
   dispatch(updateRequestStatus({ ["fetchCountries"]: { loading: false } }))
   dispatch(setCountries(countriesObj))
+  dispatch(setSummary(responseJson["Global"]))
 }

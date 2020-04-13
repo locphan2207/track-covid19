@@ -1,14 +1,25 @@
 import { combineReducers } from "redux"
 
-import { SET_COUNTRIES, UPDATE_REQUEST_STATUS } from "./actions"
+import { SET_COUNTRIES, SET_SUMMARY, UPDATE_REQUEST_STATUS } from "./actions"
 
 const initialCountries = {}
 const countriesReducer = (state = initialCountries, action) => {
   switch (action.type) {
     case SET_COUNTRIES: {
-      console.log(action.payload)
       const countries = action.payload
       return { ...countries }
+    }
+    default:
+      return state
+  }
+}
+
+const initialSummary = {}
+const summaryReducer = (state = initialSummary, action) => {
+  switch (action.type) {
+    case SET_SUMMARY: {
+      const summary = action.payload
+      return { ...summary }
     }
     default:
       return state
@@ -29,5 +40,6 @@ const requestStatusReducer = (state = initialRequestStatuses, action) => {
 
 export default combineReducers({
   countries: countriesReducer,
+  summary: summaryReducer,
   requestStatuses: requestStatusReducer,
 })

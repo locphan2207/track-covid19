@@ -10,7 +10,7 @@ import Summary from "./components/Summary"
 import Details from "./components/Details"
 import Extra from "./components/Extra"
 
-function App({ fetchCountries, countries }) {
+function App({ fetchCountries }) {
   useEffect(() => {
     fetchCountries()
   }, [])
@@ -25,10 +25,6 @@ function App({ fetchCountries, countries }) {
   )
 }
 
-const mapStateToProps = (state) => {
-  return state
-}
-
 const mapDispatchToProps = { fetchCountries }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(null, mapDispatchToProps)(App)

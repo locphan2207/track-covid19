@@ -1,3 +1,17 @@
 .summary {
   grid-area: summary;
 }
+
+.summary-card > h3 {
+  font-size: 20rem;
+  font-weight: 500;
+}
+
+.summary-card > p {
+  font-size: 30rem;
+  font-weight: 500;
+}
+
+.summary-card > small {
+  font-size: 14rem;
+}
