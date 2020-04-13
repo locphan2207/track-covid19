@@ -1,8 +1,34 @@
-import React from "react"
+import React, { useEffect } from "react"
+import { connect } from "react-redux"
+
 import "./App.css"
 
-function App() {
-  return <div className="App"></div>
+import { fetchCountries } from "redux/actions"
+
+import Menu from "./components/Menu"
+import Summary from "./components/Summary"
+import Details from "./components/Details"
+import Extra from "./components/Extra"
+
+function App({ fetchCountries, countries }) {
+  useEffect(() => {
+    fetchCountries()
+  }, [])
+
+  return (
+    <div className="App">
+      <Menu />
+      <Summary />
+      <Details />
+      <Extra />
+    </div>
+  )
 }
 
-export default App
+const mapStateToProps = (state) => {
+  return state
+}
+
+const mapDispatchToProps = { fetchCountries }
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
