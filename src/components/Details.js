@@ -1,15 +1,7 @@
-import React, { useMemo, useState } from "react"
+import React, { useMemo, useState, useEffect } from "react"
 import { connect } from "react-redux"
 
 import "./Details.css"
-
-const sortCountries = (countries) => {
-  const arr = Object.values(countries)
-  arr.sort((a, b) => {
-    return b["TotalConfirmed"] - a["TotalConfirmed"]
-  })
-  return arr
-}
 
 function Details({ countries }) {
   const [selected, setSelected] = useState({
@@ -24,8 +16,15 @@ function Details({ countries }) {
     TotalRecovered: 0,
     Date: "",
   })
+
   const sortedCountries = useMemo(() => sortCountries(countries), [countries])
-  console.log(selected)
+
+  useEffect(() => {
+    if (selected["Country"] === "...") {
+      setSelected(sortedCountries[0])
+    }
+  }, [sortedCountries])
+
   return (
     <div className="details">
       <div className="inner-container">
@@ -38,6 +37,10 @@ function Details({ countries }) {
               const onClick = () => {
                 setSelected(country)
               }
+              const shortName = country["Country"]
+                .split(" ")
+                .slice(0, 2)
+                .join(" ")
               return (
                 <div
                   className="list-item"
@@ -45,25 +48,19 @@ function Details({ countries }) {
                   onClick={onClick}
                 >
                   <p className="list-case-num">{country["TotalConfirmed"]}</p>
-                  <p className="list-name">{country["Country"]}</p>
+                  <p className="list-name">{shortName}</p>
                 </div>
               )
             })}
           </div>
         </div>
         <div className="info">
-          <h6>Total Confirmed</h6>
-          <p>{selected["TotalConfirmed"]}</p>
-          <h6>Total Recovered</h6>
-          <p>{selected["TotalRecovered"]}</p>
-          <h6>Total Death</h6>
-          <p>{selected["TotalDeaths"]}</p>
-          <h6>New Confirmed</h6>
-          <p>{selected["NewConfirmed"]}</p>
-          <h6>New Recovered</h6>
-          <p>{selected["NewRecovered"]}</p>
-          <h6>New Death</h6>
-          <p>{selected["NewDeaths"]}</p>
+          {titleToValue.map((item) => (
+            <div className="info-item" key={item[1]}>
+              <h6>{item[1]}</h6>
+              <p>{selected[item[0]]}</p>
+            </div>
+          ))}
         </div>
         <div className="graph">
           <h6>Total Confirmed</h6>
@@ -74,8 +71,26 @@ function Details({ countries }) {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state)
   return { countries: state.countries }
 }
 
 export default connect(mapStateToProps)(Details)
+
+const sortCountries = (countries) => {
+  const arr = Object.values(countries)
+  arr.sort((a, b) => {
+    return b["TotalConfirmed"] - a["TotalConfirmed"]
+  })
+  return arr
+}
+
+const titleToValue = [
+  ["Country", "Country"],
+  ["TotalConfirmed", "Total Confirmed"],
+  ["TotalRecovered", "Total Confirmed"],
+  ["TotalDeaths", "Total Confirmed"],
+  ["NewConfirmed", "New Confirmed"],
+  ["NewRecovered", "New Recovered"],
+  ["NewDeaths", "New Death"],
+  ["Date", "Updated"],
+]

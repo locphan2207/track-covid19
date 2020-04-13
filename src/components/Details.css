@@ -23,7 +23,7 @@
   background-color: #f0f3f7;
   border-radius: 20rem;
   padding: 10rem;
-  margin: 10rem;
+  margin: 0 30rem 10rem 10rem;
 }
 
 .search > input {
@@ -33,9 +33,12 @@
   color: #817c9b;
 }
 
+.search > input:focus {
+  outline-width: 0;
+}
+
 .list-container {
   grid-area: list;
-  /* margin: 0 10rem; */
   height: 100%;
   position: relative;
   overflow: hidden;
@@ -51,6 +54,7 @@
   display: grid;
   grid-template-columns: 1fr 4fr;
   column-gap: 3rem;
+  padding: 5rem 0;
 }
 
 .list-case-num {
@@ -66,18 +70,25 @@
 
 .info {
   grid-area: info;
-  background-color: #ffffff;
-  display: grid;
-  grid-template-columns: min-content min-content;
-  grid-template-rows: min-content;
+  background-color: #edeffd;
+  padding: 20rem 40rem;
+  border-radius: 20rem;
 }
 
-.info > h6 {
+.info-item {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: min-content;
+  padding: 5rem 0;
+  align-items: center;
+}
+
+.info h6 {
   font-size: 15rem;
   font-weight: 500;
 }
 
-.info > p {
+.info p {
   font-size: 20rem;
 }
 
