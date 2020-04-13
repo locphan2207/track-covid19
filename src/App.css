@@ -1,6 +1,8 @@
 .App {
   display: grid;
   grid-template-areas:
+    "menu header extra"
     "menu summary extra"
     "menu details extra";
+  background-color: #f9fcff;
 }

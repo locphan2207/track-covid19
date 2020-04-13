@@ -1,17 +1,62 @@
 .summary {
+  display: grid;
   grid-area: summary;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  column-gap: 10rem;
+}
+
+.summary-card {
+  background-color: #ffffff;
+  border-radius: 20rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2rem 2rem 10rem 0rem #2e2d2d18;
+}
+
+.summary-card:nth-child(1) > p {
+  color: #f9345e;
+}
+.summary-card:nth-child(2) > p {
+  color: #fa6400;
+}
+.summary-card:nth-child(3) > p {
+  color: #1cb142;
+}
+.summary-card:nth-child(4) > p {
+  color: #6236ff;
 }
 
 .summary-card > h3 {
-  font-size: 20rem;
-  font-weight: 500;
+  font-size: 15rem;
+  font-weight: 700;
+  margin: 10rem 0;
 }
 
 .summary-card > p {
   font-size: 30rem;
   font-weight: 500;
+  margin: 5rem 0;
+}
+
+.summary-card:nth-child(1) > p {
+  color: #fd5072;
+}
+.summary-card:nth-child(2) > p {
+  color: #ff8b40;
+}
+.summary-card:nth-child(3) > p {
+  color: #6cd400;
+}
+.summary-card:nth-child(4) > p {
+  color: #a48aff;
 }
 
 .summary-card > small {
   font-size: 14rem;
+  margin: 10rem 0;
+  color: #817c9b;
+  font-weight: 600;
 }

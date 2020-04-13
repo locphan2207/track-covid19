@@ -1,0 +1,13 @@
+.header {
+  grid-area: header;
+}
+
+.header > h1 {
+  font-size: 30rem;
+  font-weight: 500;
+}
+
+.header > h1 > span {
+  font-weight: 700;
+  color: #6135ff;
+}
