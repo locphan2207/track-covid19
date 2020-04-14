@@ -73,11 +73,11 @@ function Details({ countries }) {
           ))}
         </div> */}
         <div id="map" className="map">
-          <Map />
+          <Map countrySlug={selected.Slug} />
         </div>
         <div id="graph" className="graph">
           <p className="graph-title">Logarithmic</p>
-          <Graph selected={selected} />
+          <Graph countrySlug={selected.Slug} />
         </div>
       </div>
     </div>

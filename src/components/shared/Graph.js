@@ -20,17 +20,17 @@ import LegendItem from "./LegendItem"
 import CustomTooltip from "./CustomTooltip"
 
 function Graph({
-  selected,
+  countrySlug,
   fetchCountryDataAllTime,
   fetchCountryDataOneMonth,
   graphData,
 }) {
   useEffect(() => {
-    if (selected && selected["Slug"] && !graphData.length) {
-      fetchCountryDataAllTime(selected["Slug"])
-      //   fetchCountryDataOneMonth(selected["Slug"])
+    if (countrySlug && !graphData.length) {
+      fetchCountryDataAllTime(countrySlug)
+      //   fetchCountryDataOneMonth(countrySlug)
     }
-  }, [selected])
+  }, [countrySlug])
 
   const margin = { left: 60, top: 70, right: 20, bottom: 0 }
   return (
@@ -84,11 +84,8 @@ function Graph({
   )
 }
 
-const mapStateToProps = (state, props) => {
-  const {
-    selected: { Country },
-  } = props
-  return { graphData: state.graphData[Country] || [] }
+const mapStateToProps = (state, { countrySlug }) => {
+  return { graphData: state.graphData[countrySlug] || [] }
 }
 
 const mapDispatchToProps = { fetchCountryDataAllTime, fetchCountryDataOneMonth }

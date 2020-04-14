@@ -5,10 +5,12 @@ import {
   UPDATE_REQUEST_STATUS,
   ADD_GRAPH_DATA,
 } from "./actions"
-import data from "../data/summaryFactory"
 
-// const initialCountries = data["Countries"]
-const initialCountries = {}
+import { summary, countries } from "../data/summaryFactory"
+import ISOMap from "../data/countryISOCode"
+
+const initialCountries = countries
+// const initialCountries = {}
 const countriesReducer = (state = initialCountries, action) => {
   switch (action.type) {
     case SET_COUNTRIES: {
@@ -20,8 +22,8 @@ const countriesReducer = (state = initialCountries, action) => {
   }
 }
 
-// const initialSummary = data["Global"]
-const initialSummary = {}
+const initialSummary = summary
+// const initialSummary = {}
 const summaryReducer = (state = initialSummary, action) => {
   switch (action.type) {
     case SET_SUMMARY: {
@@ -57,9 +59,15 @@ const requestStatusReducer = (state = initialRequestStatuses, action) => {
   }
 }
 
+const initialIso = ISOMap
+const isoReducer = (state = initialIso) => {
+  return state
+}
+
 export default combineReducers({
   countries: countriesReducer,
   summary: summaryReducer,
   graphData: graphDataReducer,
   requestStatuses: requestStatusReducer,
+  iso: isoReducer,
 })

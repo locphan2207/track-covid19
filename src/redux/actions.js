@@ -77,9 +77,8 @@ export const fetchCountryDataAllTime = (countrySlug) => async (dispatch) => {
   for (const idx in responseJson) {
     dataArray.push(responseJson[idx])
   }
-  const countryName = dataArray[0]["Country"]
   dispatch(updateRequestStatus({ fetchCountryDataAllTime: { loading: false } }))
-  dispatch(addGraphData({ [countryName]: dataArray }))
+  dispatch(addGraphData({ [countrySlug]: dataArray }))
 }
 
 export const fetchCountryDataOneMonth = (countrySlug) => async (dispatch) => {
@@ -105,10 +104,9 @@ export const fetchCountryDataOneMonth = (countrySlug) => async (dispatch) => {
       })
     }
   }
-  const countryName = filtered[0]["Country"]
 
   dispatch(
     updateRequestStatus({ fetchCountryDataOneMonth: { loading: false } })
   )
-  dispatch(addGraphData({ [countryName]: filtered }))
+  dispatch(addGraphData({ [countrySlug]: filtered }))
 }

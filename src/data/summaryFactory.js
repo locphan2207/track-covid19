@@ -2964,4 +2964,9 @@ const data = {
   Date: "2020-04-05T06:37:00Z",
 }
 
-export default data
+export const countries = {}
+for (const country of data["Countries"]) {
+  countries[country["Slug"]] = country
+}
+
+export const summary = data.Global
