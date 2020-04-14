@@ -10,9 +10,10 @@
   grid-template-areas:
     "search map"
     "list map"
+    "list graph"
     "list graph";
-  grid-template-columns: fit-content 1fr;
-  grid-template-rows: min-content min-content 1fr;
+  grid-template-columns: min-content 1fr;
+  grid-template-rows: min-content min-content 1fr 1fr;
   background-color: #ffffff;
   border-radius: 20rem;
   margin: 10rem 0;
@@ -41,7 +42,7 @@
 
 .list-container {
   grid-area: list;
-  height: 100%;
+  /* height: 100%; */
   position: relative;
   margin: 0 10rem;
   overflow-x: hidden;
@@ -118,6 +119,8 @@
 
 .map {
   grid-area: map;
+  margin: 10rem;
+  background-color: #edeffd;
 }
 
 .graph {

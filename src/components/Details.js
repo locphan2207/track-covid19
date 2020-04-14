@@ -72,7 +72,7 @@ function Details({ countries }) {
             </div>
           ))}
         </div> */}
-        <div className="map">
+        <div id="map" className="map">
           <Map />
         </div>
         <div id="graph" className="graph">
