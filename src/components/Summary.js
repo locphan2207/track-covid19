@@ -19,35 +19,35 @@ function Summary({ summary }) {
   } = summary
 
   const totalActive = totalConfirmed - totalRecovered
-  const newActive = newConfirmed - newRecovered
+  const newActive = newRecovered ? newConfirmed - newRecovered : 0
 
   return (
     <div className="summary">
       <div className="summary-card">
         <h3>Total</h3>
         <p>{totalConfirmed || "..."}</p>
-        {totalConfirmed && (
+        {newConfirmed && (
           <small>{getIncreasePercent(newConfirmed, totalConfirmed)}</small>
         )}
       </div>
       <div className="summary-card">
         <h3>Active</h3>
         <p>{totalActive || "..."}</p>
-        {totalActive && (
+        {newActive && (
           <small>{getIncreasePercent(newActive, totalActive)}</small>
         )}
       </div>
       <div className="summary-card">
         <h3>Recovered</h3>
         <p>{totalRecovered || "..."}</p>
-        {totalRecovered && (
+        {newRecovered && (
           <small>{getIncreasePercent(newRecovered, totalRecovered)}</small>
         )}
       </div>
       <div className="summary-card">
         <h3>Death</h3>
         <p>{totalDeaths || "..."}</p>
-        {totalDeaths && (
+        {newDeaths && (
           <small>{getIncreasePercent(newDeaths, totalDeaths)}</small>
         )}
       </div>

@@ -43,11 +43,13 @@ function Details({ countries }) {
                 .split(" ")
                 .slice(0, 2)
                 .join(" ")
+              const isSelected = selected.Slug === country.Slug
               return (
                 <div
                   className="list-item"
                   key={country["Slug"]}
                   onClick={onClick}
+                  style={isSelected ? { backgroundColor: "#edeffd" } : null}
                 >
                   <p className="list-case-num">{country["TotalConfirmed"]}</p>
                   <p className="list-name">{shortName}</p>

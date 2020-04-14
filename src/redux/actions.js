@@ -86,13 +86,29 @@ export const fetchCountryDataOneMonth = (countrySlug) => async (dispatch) => {
   dispatch(updateRequestStatus({ fetchCountryDataOneMonth: { loading: true } }))
 
   const responseJson = await fetchCountryDataOneMonthRequest(countrySlug)
-  const dataArray = []
-  for (const idx in responseJson) {
-    dataArray.push(responseJson[idx])
+
+  const today = new Date()
+  today.setHours(0, 0, 0)
+  const monthAgo = new Date(today.toUTCString())
+  monthAgo.setMonth(monthAgo.getMonth() - 1)
+
+  const filtered = []
+  for (const item of responseJson) {
+    const date = new Date(item.Date)
+    if (date >= monthAgo && date <= today) {
+      filtered.push({
+        Country: item.Country,
+        Confirmed: item.Confirmed,
+        Recovered: item.Confirmed,
+        Deaths: item.Deaths,
+        Date: item.Date,
+      })
+    }
   }
-  const countryName = dataArray[0]["Country"]
+  const countryName = filtered[0]["Country"]
+
   dispatch(
     updateRequestStatus({ fetchCountryDataOneMonth: { loading: false } })
   )
-  dispatch(addGraphData({ [countryName]: dataArray }))
+  dispatch(addGraphData({ [countryName]: filtered }))
 }

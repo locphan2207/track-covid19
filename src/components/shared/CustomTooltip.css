@@ -1,0 +1,34 @@
+.tooltip {
+  width: fit-content;
+  background-color: #ffffff;
+  box-shadow: 2rem 2rem 10rem 0rem #2e2d2d18;
+  padding: 10rem;
+}
+
+.tooltip-country {
+  font-size: 10rem;
+  font-weight: 700;
+}
+
+.tooltip-date {
+  font-size: 10rem;
+}
+
+.tooltip-item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 5rem 5rem 0 0;
+}
+
+.tooltip-item-key {
+  font-size: 10rem;
+  font-weight: 600;
+  color: #817c9b;
+  margin-right: 5rem;
+}
+
+.tooltip-item-value {
+  font-size: 13rem;
+  font-weight: 600;
+}

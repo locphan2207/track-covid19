@@ -15,8 +15,9 @@ import {
   fetchCountryDataOneMonth,
 } from "redux/actions"
 
-import Tick, { parseDateForXAxis } from "./Tick"
+import Tick from "./Tick"
 import LegendItem from "./LegendItem"
+import CustomTooltip from "./CustomTooltip"
 
 function Graph({
   selected,
@@ -25,22 +26,23 @@ function Graph({
   graphData,
 }) {
   useEffect(() => {
-    if (selected && selected["Slug"] && !graphData) {
-      //   fetchCountryDataAllTime(selected["Slug"])
-      fetchCountryDataOneMonth(selected["Slug"])
+    if (selected && selected["Slug"] && !graphData.length) {
+      fetchCountryDataAllTime(selected["Slug"])
+      //   fetchCountryDataOneMonth(selected["Slug"])
     }
   }, [selected])
 
-  const margin = { left: 60, top: 70, right: 0 }
+  const margin = { left: 60, top: 70, right: 20 }
   return (
     <ResponsiveContainer width="100%" height="100%">
-      <LineChart data={graphData || []} margin={margin}>
+      <LineChart data={graphData} margin={margin}>
         <Line
           dot={false}
           type={"basisOpen"}
           dataKey="Confirmed"
           stroke="#f9345e"
           strokeWidth={3}
+          isAnimationActive={false}
         />
         <Line
           dot={false}
@@ -48,6 +50,7 @@ function Graph({
           dataKey="Recovered"
           stroke="#1cb142"
           strokeWidth={3}
+          isAnimationActive={false}
         />
         <Line
           dot={false}
@@ -55,6 +58,7 @@ function Graph({
           dataKey="Deaths"
           stroke="#6236ff"
           strokeWidth={3}
+          isAnimationActive={false}
         />
         <XAxis
           width={1}
@@ -70,11 +74,7 @@ function Graph({
           minTickGap={40}
           tick={<Tick type={"number"} axisType="y" />}
         ></YAxis>
-        <Tooltip
-          labelStyle={{ fontSize: "20rem", marginBottom: "5rem" }}
-          contentStyle={{ fontSize: "15rem", margin: "5rem" }}
-          labelFormatter={parseDateForXAxis}
-        />
+        <Tooltip content={<CustomTooltip />} />
         <Legend wrapperStyle={{ top: 20, right: 0 }} content={<LegendItem />} />
       </LineChart>
     </ResponsiveContainer>
@@ -85,7 +85,7 @@ const mapStateToProps = (state, props) => {
   const {
     selected: { Country },
   } = props
-  return { graphData: state.graphData[Country] }
+  return { graphData: state.graphData[Country] || [] }
 }
 
 const mapDispatchToProps = { fetchCountryDataAllTime, fetchCountryDataOneMonth }

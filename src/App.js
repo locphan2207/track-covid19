@@ -11,9 +11,9 @@ import Summary from "./components/Summary"
 import Details from "./components/Details"
 import Extra from "./components/Extra"
 
-function App({ fetchCountries }) {
+function App({ fetchCountries, fetchSummary }) {
   useEffect(() => {
-    // fetchCountries()
+    fetchCountries()
   }, [])
 
   return (

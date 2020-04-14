@@ -7,7 +7,7 @@ function LegendItem({ payload }) {
     <div className="legend">
       {payload.map((entry) => {
         return (
-          <div className="legend-item">
+          <div className="legend-item" key={entry.value}>
             <div className="legend-icon">
               <div style={{ backgroundColor: getColor(entry.value) }}></div>
             </div>
