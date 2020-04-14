@@ -16,12 +16,7 @@ function Tick(props) {
       : `translate(${x},${y})`
   return (
     <g transform={transform}>
-      <text
-        className="tick-value-text"
-        textAnchor={textAnchor}
-        fill="#817c9b"
-        stroke={2}
-      >
+      <text className="tick-value-text" textAnchor={textAnchor}>
         {value}
       </text>
     </g>

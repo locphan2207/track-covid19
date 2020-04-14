@@ -1,0 +1,33 @@
+.legend {
+  display: flex;
+  justify-content: flex-end;
+}
+.legend-item {
+  padding: 0 10rem;
+  display: flex;
+  align-items: baseline;
+}
+
+.legend-icon {
+  width: 20rem;
+  height: 20rem;
+  border-radius: 20rem;
+  background-color: #ffffff;
+  border: 2rem solid #edeffd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5rem;
+}
+
+.legend-icon > div {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 10rem;
+}
+
+.legend-text {
+  font-size: 10rem;
+  color: #817c9b;
+  font-weight: 500;
+}

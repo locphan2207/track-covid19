@@ -1,4 +1,8 @@
 .tick-value-text {
   margin: 25rem 0;
   font-size: 11rem;
+  stroke-width: 0.5rem;
+  fill: #817c9b;
+  fill-opacity: 0.8;
+  font-weight: 600;
 }
