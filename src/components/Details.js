@@ -65,6 +65,7 @@ function Details({ countries }) {
           ))}
         </div>
         <div id="graph" className="graph">
+          <p className="graph-title">Logarithmic</p>
           <Graph selected={selected} />
         </div>
       </div>

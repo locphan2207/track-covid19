@@ -95,4 +95,13 @@
 .graph {
   grid-area: graph;
   background-color: #ffffff;
+  position: relative;
+}
+
+.graph .graph-title {
+  position: absolute;
+  top: 20rem;
+  left: 0;
+  font-size: 15rem;
+  font-weight: 700;
 }

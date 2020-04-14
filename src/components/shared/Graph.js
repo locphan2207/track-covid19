@@ -8,7 +8,7 @@ import {
   YAxis,
   Tooltip,
   Legend,
-  Text,
+  Label,
 } from "recharts"
 
 import {
@@ -32,7 +32,7 @@ function Graph({
     }
   }, [selected])
 
-  const margin = { left: 60, top: 50, right: 0 }
+  const margin = { left: 60, top: 70, right: 0 }
   return (
     <ResponsiveContainer width="100%" height="100%">
       <LineChart data={graphData || []} margin={margin}>
@@ -70,10 +70,9 @@ function Graph({
           tickLine={false}
           minTickGap={40}
           tick={<Tick type={"number"} axisType="y" />}
-        />
+        ></YAxis>
         <Tooltip />
         <Legend wrapperStyle={{ top: 20, right: 0 }} content={<LegendItem />} />
-        <Text />
       </LineChart>
     </ResponsiveContainer>
   )
