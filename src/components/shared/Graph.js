@@ -42,7 +42,7 @@ function Graph({
           dataKey="Confirmed"
           stroke="#f9345e"
           strokeWidth={3}
-          isAnimationActive={false}
+          isAnimationActive={true}
         />
         <Line
           dot={false}
@@ -50,7 +50,7 @@ function Graph({
           dataKey="Recovered"
           stroke="#1cb142"
           strokeWidth={3}
-          isAnimationActive={false}
+          isAnimationActive={true}
         />
         <Line
           dot={false}
@@ -58,7 +58,7 @@ function Graph({
           dataKey="Deaths"
           stroke="#6236ff"
           strokeWidth={3}
-          isAnimationActive={false}
+          isAnimationActive={true}
         />
         <XAxis
           width={1}
@@ -75,7 +75,10 @@ function Graph({
           tick={<Tick type={"number"} axisType="y" />}
         ></YAxis>
         <Tooltip content={<CustomTooltip />} />
-        <Legend wrapperStyle={{ top: 20, right: 0 }} content={<LegendItem />} />
+        <Legend
+          wrapperStyle={{ top: "20rem", right: 0 }}
+          content={<LegendItem />}
+        />
       </LineChart>
     </ResponsiveContainer>
   )
