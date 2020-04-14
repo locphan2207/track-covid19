@@ -1,4 +1,8 @@
-import { fetchCountriesRequest, fetchCountryDataAllTimeRequest } from "../api"
+import {
+  fetchCountriesRequest,
+  fetchCountryDataAllTimeRequest,
+  fetchCountryDataOneMonthRequest,
+} from "../api"
 
 export const SET_COUNTRIES = "SET_COUNTRIES"
 export const UPDATE_COUNTRIES = "UPDATE_COUNTRIES"
@@ -52,7 +56,7 @@ export const addGraphData = (data) => {
 }
 
 export const fetchCountries = () => async (dispatch) => {
-  dispatch(updateRequestStatus({ ["fetchCountries"]: { loading: true } }))
+  dispatch(updateRequestStatus({ fetchCountries: { loading: true } }))
 
   const responseJson = await fetchCountriesRequest()
   const countriesObj = {}
@@ -60,15 +64,13 @@ export const fetchCountries = () => async (dispatch) => {
     countriesObj[country["Slug"]] = country
   }
 
-  dispatch(updateRequestStatus({ ["fetchCountries"]: { loading: false } }))
+  dispatch(updateRequestStatus({ fetchCountries: { loading: false } }))
   dispatch(setCountries(countriesObj))
   dispatch(setSummary(responseJson["Global"]))
 }
 
 export const fetchCountryDataAllTime = (countrySlug) => async (dispatch) => {
-  dispatch(
-    updateRequestStatus({ ["fetchCountryDataAllTime"]: { loading: true } })
-  )
+  dispatch(updateRequestStatus({ fetchCountryDataAllTime: { loading: true } }))
 
   const responseJson = await fetchCountryDataAllTimeRequest(countrySlug)
   const dataArray = []
@@ -76,8 +78,21 @@ export const fetchCountryDataAllTime = (countrySlug) => async (dispatch) => {
     dataArray.push(responseJson[idx])
   }
   const countryName = dataArray[0]["Country"]
+  dispatch(updateRequestStatus({ fetchCountryDataAllTime: { loading: false } }))
+  dispatch(addGraphData({ [countryName]: dataArray }))
+}
+
+export const fetchCountryDataOneMonth = (countrySlug) => async (dispatch) => {
+  dispatch(updateRequestStatus({ fetchCountryDataOneMonth: { loading: true } }))
+
+  const responseJson = await fetchCountryDataOneMonthRequest(countrySlug)
+  const dataArray = []
+  for (const idx in responseJson) {
+    dataArray.push(responseJson[idx])
+  }
+  const countryName = dataArray[0]["Country"]
   dispatch(
-    updateRequestStatus({ ["fetchCountryDataAllTime"]: { loading: false } })
+    updateRequestStatus({ fetchCountryDataOneMonth: { loading: false } })
   )
   dispatch(addGraphData({ [countryName]: dataArray }))
 }

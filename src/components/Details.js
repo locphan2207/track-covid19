@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect } from "react"
+import React, { useMemo, useState, useEffect, useRef } from "react"
 import { connect } from "react-redux"
 
 import "./Details.css"
@@ -64,7 +64,7 @@ function Details({ countries }) {
             </div>
           ))}
         </div>
-        <div className="graph">
+        <div id="graph" className="graph">
           <Graph selected={selected} />
         </div>
       </div>

@@ -20,3 +20,19 @@ export const fetchCountryDataAllTimeRequest = async (countrySlug) => {
   })
   return response.json()
 }
+
+export const fetchCountryDataOneMonthRequest = async (countrySlug) => {
+  const today = new Date()
+  const monthAgo = new Date()
+  monthAgo.setMonth(monthAgo.getMonth() - 1)
+  const response = await fetch(
+    `${COUNTRY_URL}${countrySlug}?from=${monthAgo}&to=${today}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  )
+  return response.json()
+}
