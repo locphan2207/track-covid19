@@ -2,9 +2,7 @@ import React from "react"
 
 import "./LegendItem.css"
 
-function LegendItem(props) {
-  console.log(props)
-  const { payload } = props
+function LegendItem({ payload }) {
   return (
     <div className="legend">
       {payload.map((entry) => {

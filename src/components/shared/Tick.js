@@ -26,7 +26,7 @@ function Tick(props) {
 export default Tick
 
 //Helpers
-const parseDateForXAxis = (dateStr) => {
+export const parseDateForXAxis = (dateStr) => {
   const date = new Date(dateStr)
   return `${monthToStr[date.getMonth() + 1]} ${date.getDate()}`
 }

@@ -8,7 +8,6 @@ import {
   YAxis,
   Tooltip,
   Legend,
-  Label,
 } from "recharts"
 
 import {
@@ -16,7 +15,7 @@ import {
   fetchCountryDataOneMonth,
 } from "redux/actions"
 
-import Tick from "./Tick"
+import Tick, { parseDateForXAxis } from "./Tick"
 import LegendItem from "./LegendItem"
 
 function Graph({
@@ -71,7 +70,11 @@ function Graph({
           minTickGap={40}
           tick={<Tick type={"number"} axisType="y" />}
         ></YAxis>
-        <Tooltip />
+        <Tooltip
+          labelStyle={{ fontSize: "20rem", marginBottom: "5rem" }}
+          contentStyle={{ fontSize: "15rem", margin: "5rem" }}
+          labelFormatter={parseDateForXAxis}
+        />
         <Legend wrapperStyle={{ top: 20, right: 0 }} content={<LegendItem />} />
       </LineChart>
     </ResponsiveContainer>
