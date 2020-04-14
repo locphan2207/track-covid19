@@ -80,6 +80,14 @@
   border-radius: 5rem;
 }
 
+.list-item:hover {
+  cursor: pointer;
+}
+
+.list-item:hover .list-name {
+  color: #6236ff;
+}
+
 .list-case-num {
   font-size: 15rem;
   text-align: left;
