@@ -34,7 +34,7 @@ function Graph({
 
   const margin = { left: 60, top: 70, right: 20 }
   return (
-    <ResponsiveContainer width="100%" height="100%">
+    <ResponsiveContainer width="90%" height="90%">
       <LineChart data={graphData} margin={margin}>
         <Line
           dot={false}

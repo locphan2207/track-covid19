@@ -4,6 +4,7 @@ import { connect } from "react-redux"
 import "./Details.css"
 
 import Graph from "./shared/Graph"
+import Map from "./shared/Map"
 
 function Details({ countries }) {
   const [selected, setSelected] = useState({
@@ -46,6 +47,7 @@ function Details({ countries }) {
               const isSelected = selected.Slug === country.Slug
               return (
                 <div
+                  id={`list-id-${country["Slug"]}`}
                   className="list-item"
                   key={country["Slug"]}
                   onClick={onClick}
@@ -58,7 +60,7 @@ function Details({ countries }) {
             })}
           </div>
         </div>
-        <div className="info">
+        {/* <div className="info">
           {titleToValue.map((item) => (
             <div className="info-item" key={item[1]}>
               <h6>{item[1]}</h6>
@@ -69,6 +71,9 @@ function Details({ countries }) {
               </p>
             </div>
           ))}
+        </div> */}
+        <div className="map">
+          <Map />
         </div>
         <div id="graph" className="graph">
           <p className="graph-title">Logarithmic</p>

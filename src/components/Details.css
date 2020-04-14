@@ -8,8 +8,8 @@
   height: 95%;
   display: grid;
   grid-template-areas:
-    "search info"
-    "list info"
+    "search map"
+    "list map"
     "list graph";
   grid-template-columns: fit-content 1fr;
   grid-template-rows: min-content min-content 1fr;
@@ -114,6 +114,10 @@
 .info p {
   font-size: 20rem;
   font-weight: 600;
+}
+
+.map {
+  grid-area: map;
 }
 
 .graph {
