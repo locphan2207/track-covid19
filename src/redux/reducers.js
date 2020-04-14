@@ -7,7 +7,8 @@ import {
 } from "./actions"
 import data from "../data/summaryFactory"
 
-const initialCountries = data["Countries"] //{}
+// const initialCountries = data["Countries"]
+const initialCountries = {}
 const countriesReducer = (state = initialCountries, action) => {
   switch (action.type) {
     case SET_COUNTRIES: {
@@ -19,7 +20,8 @@ const countriesReducer = (state = initialCountries, action) => {
   }
 }
 
-const initialSummary = data["Global"] //{}
+// const initialSummary = data["Global"]
+const initialSummary = {}
 const summaryReducer = (state = initialSummary, action) => {
   switch (action.type) {
     case SET_SUMMARY: {

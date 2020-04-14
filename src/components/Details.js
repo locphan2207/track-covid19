@@ -22,7 +22,7 @@ function Details({ countries }) {
   const sortedCountries = useMemo(() => sortCountries(countries), [countries])
 
   useEffect(() => {
-    if (!selected["Country"]) {
+    if (!selected["Country"] && sortedCountries.length) {
       setSelected(sortedCountries[0])
     }
   }, [sortedCountries])
