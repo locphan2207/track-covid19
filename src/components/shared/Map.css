@@ -1,0 +1,32 @@
+.map-text {
+  font-size: 5rem;
+  font-weight: 500;
+}
+
+.map-case {
+  font-size: 6rem;
+  font-weight: 500;
+  fill: #dfdbdb;
+  transform: translateY(7rem);
+}
+
+.map-num {
+  font-size: 6rem;
+  font-weight: 600;
+  transform: translate(15rem, 7rem);
+  fill: #ffffff;
+}
+
+.map-text-box {
+  width: 50rem;
+  height: 15rem;
+  fill: #bdacfa;
+  transform: translate(-5rem, -5rem);
+  border-radius: 10rem;
+}
+
+.rsm-geography {
+  outline-width: 0;
+  stroke: black;
+  stroke-width: 0.1px;
+}

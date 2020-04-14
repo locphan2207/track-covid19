@@ -123,6 +123,14 @@
   background-color: #edeffd;
 }
 
+.map:hover {
+  cursor: grab;
+}
+
+.map:active {
+  cursor: grabbing;
+}
+
 .graph {
   grid-area: graph;
   background-color: #ffffff;

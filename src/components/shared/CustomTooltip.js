@@ -4,12 +4,15 @@ import "./CustomTooltip.css"
 
 import { parseDateForXAxis } from "./Tick"
 
+import { getShortName } from "../helpers"
+
 function CustomTooltip({ payload, country }) {
   if (!payload || !payload.length) return null
-  const shortName = payload[0].payload.Country.split(" ").slice(0, 2).join(" ")
   return (
     <div className="tooltip">
-      <p className="tooltip-country">{shortName}</p>
+      <p className="tooltip-country">
+        {getShortName(payload[0].payload.Country)}
+      </p>
       <p className="tooltip-date">
         {parseDateForXAxis(payload[0].payload.Date)}
       </p>

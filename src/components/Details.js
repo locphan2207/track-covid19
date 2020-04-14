@@ -6,6 +6,8 @@ import "./Details.css"
 import Graph from "./shared/Graph"
 import Map from "./shared/Map"
 
+import { getShortName } from "./helpers"
+
 function Details({ countries }) {
   const [selected, setSelected] = useState({
     Country: "",
@@ -40,10 +42,7 @@ function Details({ countries }) {
               const onClick = () => {
                 setSelected(country)
               }
-              const shortName = country["Country"]
-                .split(" ")
-                .slice(0, 2)
-                .join(" ")
+
               const isSelected = selected.Slug === country.Slug
               return (
                 <div
@@ -54,7 +53,9 @@ function Details({ countries }) {
                   style={isSelected ? { backgroundColor: "#edeffd" } : null}
                 >
                   <p className="list-case-num">{country["TotalConfirmed"]}</p>
-                  <p className="list-name">{shortName}</p>
+                  <p className="list-name">
+                    {getShortName(country["Country"])}
+                  </p>
                 </div>
               )
             })}
