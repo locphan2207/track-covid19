@@ -28,6 +28,6 @@ const getColor = (type) => {
     case "Recovered":
       return "#1cb142"
     default:
-      return "#6236ff"
+      return "#9577ff"
   }
 }

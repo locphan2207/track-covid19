@@ -48,7 +48,7 @@ function Graph({
           dot={false}
           type={"basisOpen"}
           dataKey="Recovered"
-          stroke="#1cb142"
+          stroke="#6bd301"
           strokeWidth={3}
           isAnimationActive={true}
         />
@@ -56,7 +56,7 @@ function Graph({
           dot={false}
           type={"basisOpen"}
           dataKey="Deaths"
-          stroke="#6236ff"
+          stroke="#9577ff"
           strokeWidth={3}
           isAnimationActive={true}
         />

@@ -38,15 +38,29 @@
   color: #fa6400;
 }
 .summary-card:nth-child(3) > p {
-  color: #1cb142;
+  color: #6bd301;
 }
 .summary-card:nth-child(4) > p {
-  color: #6236ff;
+  color: #9577ff;
 }
 
-.summary-card > small {
+.increase-num {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.increase-num > small {
   font-size: 14rem;
-  margin: 10rem 0;
+  margin: 10rem 5rem;
   color: #817c9b;
   font-weight: 600;
+}
+
+.triangle-icon {
+  width: 0;
+  height: 0;
+  border-left: 4rem solid transparent;
+  border-right: 4rem solid transparent;
+  border-bottom: 4rem solid #6bd301;
 }

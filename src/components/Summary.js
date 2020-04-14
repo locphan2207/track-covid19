@@ -27,28 +27,40 @@ function Summary({ summary }) {
         <h3>Total</h3>
         <p>{totalConfirmed || "..."}</p>
         {newConfirmed && (
-          <small>{getIncreasePercent(newConfirmed, totalConfirmed)}</small>
+          <div className="increase-num">
+            <small>{getIncreasePercent(newConfirmed, totalConfirmed)}</small>
+            <div className="triangle-icon" />
+          </div>
         )}
       </div>
       <div className="summary-card">
         <h3>Active</h3>
         <p>{totalActive || "..."}</p>
         {newActive && (
-          <small>{getIncreasePercent(newActive, totalActive)}</small>
+          <div className="increase-num">
+            <small>{getIncreasePercent(newActive, totalActive)}</small>
+            <div className="triangle-icon" />
+          </div>
         )}
       </div>
       <div className="summary-card">
         <h3>Recovered</h3>
         <p>{totalRecovered || "..."}</p>
         {newRecovered && (
-          <small>{getIncreasePercent(newRecovered, totalRecovered)}</small>
+          <div className="increase-num">
+            <small>{getIncreasePercent(newRecovered, totalRecovered)}</small>
+            <div className="triangle-icon" />
+          </div>
         )}
       </div>
       <div className="summary-card">
         <h3>Death</h3>
         <p>{totalDeaths || "..."}</p>
         {newDeaths && (
-          <small>{getIncreasePercent(newDeaths, totalDeaths)}</small>
+          <div className="increase-num">
+            <small>{getIncreasePercent(newDeaths, totalDeaths)}</small>
+            <div className="triangle-icon" />
+          </div>
         )}
       </div>
     </div>
