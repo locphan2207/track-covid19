@@ -166,11 +166,12 @@ html {
 }
 
 #root {
-  width: max(80vw, 1400px);
+  width: min(80vw, 1400px);
   height: 98vh;
   overflow: hidden;
   margin: 1vh auto;
   background-color: #1a1053;
   border-top-left-radius: 2vw;
   border-bottom-left-radius: 2vw;
+  box-shadow: 0rem 0rem 50rem 20rem #2e2d2d2c;
 }

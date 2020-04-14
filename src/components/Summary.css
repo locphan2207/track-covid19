@@ -5,7 +5,7 @@
   grid-template-rows: 1fr;
   justify-content: space-around;
   background-color: #f9fcff;
-  padding: 20rem;
+  padding: 10rem 20rem;
   column-gap: 20rem;
 }
 

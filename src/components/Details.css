@@ -1,22 +1,24 @@
 .details {
   grid-area: details;
   background-color: #f9fcff;
-  padding: 20rem;
+  padding: 0 20rem;
 }
 
 .inner-container {
-  height: 100%;
+  height: 95%;
   display: grid;
   grid-template-areas:
     "search info"
     "list info"
     "list graph";
-  grid-template-columns: 2fr 5fr;
+  grid-template-columns: fit-content 1fr;
   grid-template-rows: min-content min-content 1fr;
   background-color: #ffffff;
   border-radius: 20rem;
-  padding: 20rem;
+  margin: 10rem 0;
+  padding: 10rem;
   box-shadow: 2rem 2rem 10rem 0rem #2e2d2d18;
+  overflow: hidden;
 }
 
 .search {
@@ -41,8 +43,7 @@
   grid-area: list;
   height: 100%;
   position: relative;
-  overflow: hidden;
-  margin: 10rem;
+  margin: 0 10rem;
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -71,10 +72,11 @@
 
 .list-item {
   display: grid;
-  grid-template-columns: 1fr 4fr;
-  column-gap: 3rem;
-  padding: 5rem 5rem;
-  border-radius: 4rem;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 10rem;
+  padding: 10rem 20rem;
+  margin: 0 5rem;
+  border-radius: 5rem;
 }
 
 .list-case-num {
