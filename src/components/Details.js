@@ -62,7 +62,7 @@ function Details({ countries }) {
           {titleToValue.map((item) => (
             <div className="info-item" key={item[1]}>
               <h6>{item[1]}</h6>
-              <p>
+              <p style={item[2] ? { color: item[2] } : null}>
                 {item[0] === "Date"
                   ? new Date(selected[item[0]]).toDateString()
                   : selected[item[0]]}
@@ -95,11 +95,11 @@ const sortCountries = (countries) => {
 
 const titleToValue = [
   ["Country", "Country"],
-  ["TotalConfirmed", "Total Confirmed"],
-  ["TotalRecovered", "Total Recovered"],
-  ["TotalDeaths", "Total Death"],
-  ["NewConfirmed", "New Confirmed"],
-  ["NewRecovered", "New Recovered"],
-  ["NewDeaths", "New Death"],
+  ["TotalConfirmed", "Total Confirmed", "#f9345e"],
+  ["TotalRecovered", "Total Recovered", "#1cb142"],
+  ["TotalDeaths", "Total Death", "#6236ff"],
+  ["NewConfirmed", "New Confirmed", "#f9345e"],
+  ["NewRecovered", "New Recovered", "#1cb142"],
+  ["NewDeaths", "New Death", "#6236ff"],
   ["Date", "Updated"],
 ]

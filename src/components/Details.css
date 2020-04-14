@@ -43,6 +43,24 @@
   position: relative;
   overflow: hidden;
   margin: 10rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.list-container::-webkit-scrollbar {
+  width: 15rem;
+}
+
+.list-container::-webkit-scrollbar-track {
+  background-color: #eff3f7;
+  border: 2rem #ffffff solid;
+  border-radius: 7.5rem;
+}
+
+.list-container::-webkit-scrollbar-thumb {
+  background-color: #dfdaf0;
+  width: 15rem;
+  border-radius: 7.5rem;
 }
 
 .list {
@@ -88,10 +106,12 @@
 .info h6 {
   font-size: 15rem;
   font-weight: 500;
+  color: #817c9b;
 }
 
 .info p {
   font-size: 20rem;
+  font-weight: 600;
 }
 
 .graph {
