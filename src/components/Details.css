@@ -42,7 +42,6 @@
 
 .list-container {
   grid-area: list;
-  /* height: 100%; */
   position: relative;
   margin: 0 10rem;
   overflow-x: hidden;
@@ -97,32 +96,6 @@
   font-size: 15rem;
   color: #817c9b;
   text-align: left;
-}
-
-.info {
-  grid-area: info;
-  background-color: #edeffd;
-  padding: 20rem 40rem;
-  border-radius: 20rem;
-}
-
-.info-item {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  grid-template-rows: min-content;
-  padding: 5rem 0;
-  align-items: center;
-}
-
-.info h6 {
-  font-size: 15rem;
-  font-weight: 500;
-  color: #817c9b;
-}
-
-.info p {
-  font-size: 20rem;
-  font-weight: 600;
 }
 
 .map {

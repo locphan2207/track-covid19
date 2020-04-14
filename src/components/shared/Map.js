@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo, Fragment } from "react"
+import React, { useEffect, useState, useMemo } from "react"
 import { connect } from "react-redux"
 import {
   ComposableMap,

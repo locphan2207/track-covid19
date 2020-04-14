@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect, useRef } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import { connect } from "react-redux"
 
 import "./Details.css"
@@ -9,6 +9,9 @@ import Map from "./shared/Map"
 import { getShortName } from "./helpers"
 
 function Details({ countries }) {
+  const searchInput = useRef(null)
+
+  const [countryList, setCountryList] = useState([])
   const [selected, setSelected] = useState({
     Country: "",
     CountryCode: "",
@@ -22,23 +25,34 @@ function Details({ countries }) {
     Date: "",
   })
 
-  const sortedCountries = useMemo(() => sortCountries(countries), [countries])
+  useEffect(() => {
+    setCountryList(sortCountries(countries))
+  }, [countries])
+
+  const handleSearchInput = () => {
+    setCountryList(sortCountries(countries, searchInput.current.value))
+  }
 
   useEffect(() => {
-    if (!selected["Country"] && sortedCountries.length) {
-      setSelected(sortedCountries[0])
+    if (!selected["Country"] && countryList.length) {
+      setSelected(countryList[0])
     }
-  }, [sortedCountries])
+  }, [countryList, selected])
 
   return (
     <div className="details">
       <div className="inner-container">
         <div className="search">
-          <input type="text" placeholder="Search Country" />
+          <input
+            ref={searchInput}
+            type="text"
+            placeholder="Search Country"
+            onKeyDown={handleSearchInput}
+          />
         </div>
         <div className="list-container">
           <div className="list">
-            {Object.values(sortedCountries).map((country) => {
+            {Object.values(countryList).map((country) => {
               const onClick = () => {
                 setSelected(country)
               }
@@ -61,18 +75,6 @@ function Details({ countries }) {
             })}
           </div>
         </div>
-        {/* <div className="info">
-          {titleToValue.map((item) => (
-            <div className="info-item" key={item[1]}>
-              <h6>{item[1]}</h6>
-              <p style={item[2] ? { color: item[2] } : null}>
-                {item[0] === "Date"
-                  ? new Date(selected[item[0]]).toDateString()
-                  : selected[item[0]]}
-              </p>
-            </div>
-          ))}
-        </div> */}
         <div id="map" className="map">
           <Map countrySlug={selected.Slug} />
         </div>
@@ -91,21 +93,22 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps)(Details)
 
-const sortCountries = (countries) => {
-  const arr = Object.values(countries)
+const sortCountries = (countries, searchKey = "") => {
+  let arr = []
+
+  if (!searchKey || searchKey === " ") {
+    arr = Object.values(countries)
+  } else {
+    const searchRegex = new RegExp(searchKey, "i")
+    for (const country of Object.values(countries)) {
+      const searchResult = country.Country.search(searchRegex)
+      console.log(searchRegex, searchResult)
+      if (searchResult > -1) arr.push(country)
+    }
+  }
+
   arr.sort((a, b) => {
     return b["TotalConfirmed"] - a["TotalConfirmed"]
   })
   return arr
 }
-
-const titleToValue = [
-  ["Country", "Country"],
-  ["TotalConfirmed", "Total Confirmed", "#f9345e"],
-  ["TotalRecovered", "Total Recovered", "#1cb142"],
-  ["TotalDeaths", "Total Death", "#6236ff"],
-  ["NewConfirmed", "New Confirmed", "#f9345e"],
-  ["NewRecovered", "New Recovered", "#1cb142"],
-  ["NewDeaths", "New Death", "#6236ff"],
-  ["Date", "Updated"],
-]

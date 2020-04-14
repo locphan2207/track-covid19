@@ -11,10 +11,10 @@ import Summary from "./components/Summary"
 import Details from "./components/Details"
 import Extra from "./components/Extra"
 
-function App({ fetchCountries, fetchSummary }) {
+function App({ fetchCountries }) {
   useEffect(() => {
     fetchCountries()
-  }, [])
+  }, [fetchCountries])
 
   return (
     <div className="App">

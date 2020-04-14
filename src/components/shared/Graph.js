@@ -30,7 +30,7 @@ function Graph({
       fetchCountryDataAllTime(countrySlug)
       //   fetchCountryDataOneMonth(countrySlug)
     }
-  }, [countrySlug])
+  }, [countrySlug, graphData.length, fetchCountryDataAllTime])
 
   const margin = { left: 60, top: 70, right: 20, bottom: 0 }
   return (

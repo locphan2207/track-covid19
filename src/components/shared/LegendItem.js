@@ -27,7 +27,7 @@ const getColor = (type) => {
       return "#f9345e"
     case "Recovered":
       return "#1cb142"
-    case "Deaths":
+    default:
       return "#6236ff"
   }
 }
