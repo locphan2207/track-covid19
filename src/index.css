@@ -167,9 +167,10 @@ html {
 
 #root {
   width: max(80vw, 1400px);
-  height: 96vh;
+  height: 98vh;
   overflow: hidden;
-  margin: 2vh auto;
+  margin: 1vh auto;
   background-color: #1a1053;
-  border-radius: 2vw;
+  border-top-left-radius: 2vw;
+  border-bottom-left-radius: 2vw;
 }

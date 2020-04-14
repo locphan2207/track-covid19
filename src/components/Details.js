@@ -62,7 +62,11 @@ function Details({ countries }) {
           {titleToValue.map((item) => (
             <div className="info-item" key={item[1]}>
               <h6>{item[1]}</h6>
-              <p>{selected[item[0]]}</p>
+              <p>
+                {item[0] === "Date"
+                  ? new Date(selected[item[0]]).toDateString()
+                  : selected[item[0]]}
+              </p>
             </div>
           ))}
         </div>
