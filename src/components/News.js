@@ -5,19 +5,21 @@ import "./News.css"
 
 import Carousel from "./shared/Carousel"
 
-function News({ who, cdc }) {
+function News({ who, cdc, press }) {
   return (
     <div className="news">
       <div className="inner-container">
         <Carousel data={who} />
         <Carousel data={cdc} />
+        <Carousel data={press} />
       </div>
     </div>
   )
 }
 
 const mapStateToProps = (state) => {
-  return { who: state.news.who, cdc: state.news.cdc }
+  const { who, cdc, press } = state.news
+  return { who, cdc, press }
 }
 
 export default connect(mapStateToProps)(News)

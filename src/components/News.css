@@ -11,7 +11,16 @@
   margin: 10rem 0;
   padding: 10rem;
   box-shadow: 2rem 2rem 10rem 0rem #2e2d2d18;
-  overflow-y: auto;
+  /* overflow-x: hidden;
+  overflow-y: auto; */
+  overflow: auto;
+  /* position: relative; */
+}
+
+.carousel-container {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .news > .inner-container::-webkit-scrollbar {

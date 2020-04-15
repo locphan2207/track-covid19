@@ -4,6 +4,7 @@ import {
   fetchCountryDataOneMonthRequest,
   fetchWhoRssRequest,
   fetchCdcRssRequest,
+  fetchPressRequest,
 } from "../api"
 
 import { xmlToNewsObject } from "helpers"
@@ -152,4 +153,23 @@ export const fetchCdcRss = () => async (dispatch) => {
 
   dispatch(updateRequestStatus({ fetchCdcRss: { loading: false } }))
   dispatch(addNews({ cdc: xmlToNewsObject(response) }))
+}
+
+export const fetchPress = () => async (dispatch) => {
+  dispatch(updateRequestStatus({ fetchPress: { loading: true } }))
+
+  const response = await fetchPressRequest()
+  const title = "On the press"
+  const items = response.map((item) => ({
+    title: item.title,
+    link: item.url,
+    description: `Publication: ${item.publication || ""} - Author: ${
+      item.author || ""
+    }`,
+    pubDate: item.publishDate,
+    guid: item.url,
+  }))
+
+  dispatch(updateRequestStatus({ fetchPress: { loading: false } }))
+  dispatch(addNews({ press: { title, items } }))
 }

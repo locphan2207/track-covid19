@@ -2,6 +2,7 @@ const SUMMARY_URL = "https://api.covid19api.com/summary"
 const COUNTRY_URL = "https://api.covid19api.com/total/country/" // need country slug after
 const WHO_RSS = "https://www.who.int/feeds/entity/csr/don/en/rss.xml"
 const CDC_RSS = "https://tools.cdc.gov/api/v2/resources/media/404952.rss"
+const PRESS_URL = "https://covidtracking.com/api/press"
 
 export const fetchCountriesRequest = async () => {
   const response = await fetch(SUMMARY_URL, {
@@ -55,4 +56,12 @@ export const fetchCdcRssRequest = async () => {
     mode: "cors",
   })
   return response.text()
+}
+
+export const fetchPressRequest = async () => {
+  const response = await fetch(PRESS_URL, {
+    method: "GET",
+    mode: "cors",
+  })
+  return response.json()
 }

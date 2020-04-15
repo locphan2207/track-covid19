@@ -9,14 +9,14 @@
     ". header extra"
     "menu summary extra"
     "menu details extra";
-  grid-template-columns: min-content 1fr min-content;
-  grid-template-rows: min-content min-content 1fr;
+  grid-template-columns: min-content minmax(0, 1fr) min-content;
+  grid-template-rows: min-content min-content minmax(0, 1fr);
 }
 
 .newsfeed {
   grid-template-areas:
     ". header extra"
     "menu news extra";
-  grid-template-columns: min-content 1fr min-content;
-  grid-template-rows: min-content 1fr;
+  grid-template-columns: min-content minmax(0, 1fr) min-content;
+  grid-template-rows: min-content minmax(0, 1fr);
 }
