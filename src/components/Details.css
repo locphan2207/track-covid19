@@ -12,8 +12,8 @@
     "list map"
     "list graph"
     "list graph";
-  grid-template-columns: min-content 1fr;
-  grid-template-rows: min-content min-content 1fr 1fr;
+  grid-template-columns: max-content minmax(1fr, 3fr);
+  grid-template-rows: min-content min-content minmax(0, 1fr) minmax(0, 1fr);
   background-color: #ffffff;
   border-radius: 20rem;
   margin: 10rem 0;

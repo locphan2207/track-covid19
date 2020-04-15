@@ -76,7 +76,7 @@ const newsReducer = (state = initialNews, action) => {
   }
 }
 
-const initialTab = { tab: "newsfeed" }
+const initialTab = { tab: "home" }
 const tabReducer = (state = initialTab, action) => {
   switch (action.type) {
     case SET_TAB: {

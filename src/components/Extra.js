@@ -13,6 +13,15 @@ function Extra() {
         loop
         autoplay
       ></lottie-player>
+      <div className="author-box">
+        <p className="author">
+          Author:{" "}
+          <a href="http://www.loc-phan.com" target="_blank">
+            Tan Loc Phan
+          </a>
+        </p>
+        <div className="underline"></div>
+      </div>
     </div>
   )
 }

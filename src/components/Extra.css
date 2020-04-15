@@ -3,5 +3,44 @@
   background-color: #f9fcff;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.author-box {
+  overflow: hidden;
+  margin: 20rem;
+  width: fit-content;
+}
+
+.author-box > .underline {
+  height: 1px;
+  width: 100%;
+  background-color: #1a1053;
+  animation: leftright 2s ease-in-out infinite;
+}
+
+.author {
+  font-size: 10rem;
+  transition: all 0.2s ease-out;
+  margin: 5rem 0;
+  text-align: center;
+}
+
+.author:hover {
+  font-size: 11rem;
+  color: #6bd301;
+  cursor: pointer;
+}
+
+@keyframes leftright {
+  from {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
 }
