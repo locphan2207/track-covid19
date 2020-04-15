@@ -5,6 +5,7 @@ import {
   UPDATE_REQUEST_STATUS,
   ADD_GRAPH_DATA,
   SET_TAB,
+  ADD_NEWS,
 } from "./actions"
 
 import { summary, countries } from "../data/summaryFactory"
@@ -63,6 +64,18 @@ const isoReducer = (state = initialIso) => {
   return state
 }
 
+const initialNews = {}
+const newsReducer = (state = initialNews, action) => {
+  switch (action.type) {
+    case ADD_NEWS: {
+      const news = action.payload
+      return { ...state, ...news }
+    }
+    default:
+      return state
+  }
+}
+
 const initialTab = { tab: "newsfeed" }
 const tabReducer = (state = initialTab, action) => {
   switch (action.type) {
@@ -81,5 +94,6 @@ export default combineReducers({
   graphData: graphDataReducer,
   requestStatuses: requestStatusReducer,
   iso: isoReducer,
+  news: newsReducer,
   tab: tabReducer,
 })

@@ -21,6 +21,7 @@ function Menu({ tab, setTab }) {
           return (
             <div
               className="menu-item"
+              key={t}
               onClick={() => handleOnclick(t)}
               style={bgStyle}
             >

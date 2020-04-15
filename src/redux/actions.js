@@ -2,6 +2,7 @@ import {
   fetchCountriesRequest,
   fetchCountryDataAllTimeRequest,
   fetchCountryDataOneMonthRequest,
+  fetchWhoRssRequest,
 } from "../api"
 
 export const SET_COUNTRIES = "SET_COUNTRIES"
@@ -10,6 +11,7 @@ export const SET_SUMMARY = "SET_SUMMARY"
 export const ADD_GRAPH_DATA = "ADD_GRAPH_DATA"
 export const UPDATE_REQUEST_STATUS = "UPDATE_REQUEST_STATUS"
 export const SET_TAB = "SET_TAB"
+export const ADD_NEWS = "ADD_NEWS"
 
 export const setCountries = (countries) => {
   return {
@@ -56,6 +58,15 @@ export const addGraphData = (data) => {
   }
 }
 
+export const addNews = (news) => {
+  return {
+    type: ADD_NEWS,
+    payload: {
+      ...news,
+    },
+  }
+}
+
 export const setTab = (tab) => {
   return {
     type: SET_TAB,
@@ -65,6 +76,7 @@ export const setTab = (tab) => {
   }
 }
 
+// ------------------------- ASYNC ACTIONS --------------------------------
 export const fetchCountries = () => async (dispatch) => {
   dispatch(updateRequestStatus({ fetchCountries: { loading: true } }))
 
@@ -119,4 +131,28 @@ export const fetchCountryDataOneMonth = (countrySlug) => async (dispatch) => {
     updateRequestStatus({ fetchCountryDataOneMonth: { loading: false } })
   )
   dispatch(addGraphData({ [countrySlug]: filtered }))
+}
+
+export const fetchWhoRss = () => async (dispatch) => {
+  dispatch(updateRequestStatus({ fetchWhoRss: { loading: true } }))
+
+  const response = await fetchWhoRssRequest()
+
+  const parser = new window.DOMParser()
+  const xml = parser.parseFromString(response, "text/xml")
+  const title = xml.getElementsByTagName("title")[0].innerHTML
+  const data = xml.getElementsByTagName("item")
+  const items = []
+  for (let i = 0; i < data.length; i++) {
+    const element = data[i]
+    const item = {}
+    for (let j = 0; j < element.children.length; j++) {
+      const elInfo = element.children[j]
+      item[elInfo.tagName] = elInfo.innerHTML
+    }
+    items.push(item)
+  }
+
+  dispatch(updateRequestStatus({ fetchWhoRss: { loading: false } }))
+  dispatch(addNews({ who: { title, items } }))
 }

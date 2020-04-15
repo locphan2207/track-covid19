@@ -1,4 +1,5 @@
 .news {
   grid-area: news;
-  width: max-content;
+  width: 100%;
+  background-color: #f9fcff;
 }
