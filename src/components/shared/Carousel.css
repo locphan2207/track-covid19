@@ -16,7 +16,7 @@
 }
 
 .carousel-container::-webkit-scrollbar-track {
-  border: 3rem #f9fcff solid;
+  border: 3rem #ffffff solid;
   background-color: #eff3f7;
   border-radius: 7.5rem;
 }
@@ -42,7 +42,7 @@
   height: 250rem;
   margin: 10rem 20rem 20rem 0;
   box-shadow: 2rem 2rem 10rem 0rem #2e2d2d18;
-  background-color: #ffffff;
+  background-color: #edeffd;
   border-radius: 20rem;
   display: flex;
   flex-direction: column;

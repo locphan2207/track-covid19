@@ -14,7 +14,7 @@ import News from "./components/News"
 
 function App({ tab, fetchCountries, fetchWhoRss, fetchCdcRss }) {
   useEffect(() => {
-    // fetchCountries()
+    fetchCountries()
     fetchWhoRss()
     fetchCdcRss()
   }, [fetchCountries, fetchWhoRss])
@@ -23,11 +23,11 @@ function App({ tab, fetchCountries, fetchWhoRss, fetchCdcRss }) {
     <div className={`App ${tab}`}>
       <Menu />
       <Header />
+      <Extra />
       {tab === "home" ? (
         <>
           <Summary />
           <Details />
-          <Extra />
         </>
       ) : (
         <News />

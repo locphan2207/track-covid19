@@ -1,4 +1,7 @@
 .extra {
   grid-area: extra;
   background-color: #f9fcff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }

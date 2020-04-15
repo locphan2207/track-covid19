@@ -8,8 +8,10 @@ import Carousel from "./shared/Carousel"
 function News({ who, cdc }) {
   return (
     <div className="news">
-      <Carousel data={who} />
-      <Carousel data={cdc} />
+      <div className="inner-container">
+        <Carousel data={who} />
+        <Carousel data={cdc} />
+      </div>
     </div>
   )
 }

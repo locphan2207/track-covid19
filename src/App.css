@@ -15,8 +15,8 @@
 
 .newsfeed {
   grid-template-areas:
-    ". header"
-    "menu news";
-  grid-template-columns: min-content 1fr;
+    ". header extra"
+    "menu news extra";
+  grid-template-columns: min-content 1fr min-content;
   grid-template-rows: min-content 1fr;
 }

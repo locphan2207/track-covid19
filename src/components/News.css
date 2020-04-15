@@ -1,5 +1,32 @@
 .news {
   grid-area: news;
   background-color: #f9fcff;
-  padding: 30rem;
+  padding: 0 20rem;
+}
+
+.news > .inner-container {
+  height: 95%;
+  background-color: #ffffff;
+  border-radius: 20rem;
+  margin: 10rem 0;
+  padding: 10rem;
+  box-shadow: 2rem 2rem 10rem 0rem #2e2d2d18;
+  overflow-y: auto;
+}
+
+.news > .inner-container::-webkit-scrollbar {
+  width: 5rem;
+}
+
+.news > .inner-container::-webkit-scrollbar-track {
+  margin: 20rem;
+  border: 3rem #ffffff solid;
+  background-color: #eff3f7;
+  border-radius: 7.5rem;
+}
+
+.news > .inner-container::-webkit-scrollbar-thumb {
+  background-color: #dfdaf0;
+  width: 5rem;
+  border-radius: 7.5rem;
 }
