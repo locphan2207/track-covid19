@@ -1,6 +1,7 @@
 const SUMMARY_URL = "https://api.covid19api.com/summary"
 const COUNTRY_URL = "https://api.covid19api.com/total/country/" // need country slug after
 const WHO_RSS = "https://www.who.int/feeds/entity/csr/don/en/rss.xml"
+const CDC_RSS = "https://tools.cdc.gov/api/v2/resources/media/404952.rss"
 
 const corsOptions = {
   "Access-Control-Allow-Origin": "*",
@@ -50,10 +51,14 @@ export const fetchCountryDataOneMonthRequest = async (countrySlug) => {
 export const fetchWhoRssRequest = async () => {
   const response = await fetch(WHO_RSS, {
     method: "GET",
-    headers: {
-      // "Content-Type": "application/xml",
-      // ...corsOptions,
-    },
+    mode: "cors",
+  })
+  return response.text()
+}
+
+export const fetchCdcRssRequest = async () => {
+  const response = await fetch(CDC_RSS, {
+    method: "GET",
     mode: "cors",
   })
   return response.text()

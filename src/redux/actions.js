@@ -3,6 +3,7 @@ import {
   fetchCountryDataAllTimeRequest,
   fetchCountryDataOneMonthRequest,
   fetchWhoRssRequest,
+  fetchCdcRssRequest,
 } from "../api"
 
 export const SET_COUNTRIES = "SET_COUNTRIES"
@@ -155,4 +156,28 @@ export const fetchWhoRss = () => async (dispatch) => {
 
   dispatch(updateRequestStatus({ fetchWhoRss: { loading: false } }))
   dispatch(addNews({ who: { title, items } }))
+}
+
+export const fetchCdcRss = () => async (dispatch) => {
+  dispatch(updateRequestStatus({ fetchCdcRss: { loading: true } }))
+
+  const response = await fetchCdcRssRequest()
+
+  const parser = new window.DOMParser()
+  const xml = parser.parseFromString(response, "text/xml")
+  const title = xml.getElementsByTagName("title")[0].innerHTML
+  const data = xml.getElementsByTagName("item")
+  const items = []
+  for (let i = 0; i < data.length; i++) {
+    const element = data[i]
+    const item = {}
+    for (let j = 0; j < element.children.length; j++) {
+      const elInfo = element.children[j]
+      item[elInfo.tagName] = elInfo.innerHTML
+    }
+    items.push(item)
+  }
+
+  dispatch(updateRequestStatus({ fetchCdcRss: { loading: false } }))
+  dispatch(addNews({ cdc: { title, items } }))
 }

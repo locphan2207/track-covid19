@@ -1,0 +1,97 @@
+.carousel-title {
+  font-size: 25rem;
+  font-weight: 600;
+  margin: 50rem 0 0 0;
+}
+
+.carousel-container {
+  height: 330rem;
+  position: relative;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.carousel-container::-webkit-scrollbar {
+  height: 15rem;
+}
+
+.carousel-container::-webkit-scrollbar-track {
+  border: 3rem #f9fcff solid;
+  background-color: #eff3f7;
+  border-radius: 7.5rem;
+}
+
+.carousel-container::-webkit-scrollbar-thumb {
+  background-color: #dfdaf0;
+  height: 15rem;
+  border-radius: 7.5rem;
+}
+
+.carousel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.carousel-item {
+  padding: 20rem;
+  width: 390rem;
+  height: 250rem;
+  margin: 10rem 20rem 20rem 0;
+  box-shadow: 2rem 2rem 10rem 0rem #2e2d2d18;
+  background-color: #ffffff;
+  border-radius: 20rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.item-content {
+  flex-grow: 1;
+}
+
+.item-content .item-title {
+  font-size: 15rem;
+  font-weight: 600;
+  letter-spacing: 1rem;
+  line-height: 20rem;
+}
+
+.item-content .item-summary {
+  font-size: 13rem;
+  color: #817c9b;
+  letter-spacing: 1rem;
+  line-height: 20rem;
+  margin: 10rem 0;
+}
+
+.item-content .item-date {
+  font-size: 10rem;
+  margin: 10rem 0;
+  color: #817c9b;
+  font-style: italic;
+}
+
+.item-link-icon {
+  font-size: 15rem;
+  color: #9577ff;
+  text-align: right;
+  width: 100%;
+  transition: color 0.2s ease-out;
+}
+
+.item-link {
+  font-size: 13rem;
+  color: #9577ff;
+  text-align: right;
+  width: 100%;
+  transition: color 0.2s ease-out;
+}
+
+.item-link-icon:hover,
+.item-link:hover {
+  color: #6bd301;
+}
