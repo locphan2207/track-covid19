@@ -1,6 +1,6 @@
 /*
   	Flaticon icon font: Flaticon
-  	Creation date: 15/04/2020 00:14
+  	Creation date: 15/04/2020 04:54
   	*/
 
 @font-face {
@@ -35,4 +35,10 @@
 }
 .flaticon-newsfeed:before {
   content: "\f101";
+}
+.flaticon-share:before {
+  content: "\f102";
+}
+.flaticon-out:before {
+  content: "\f103";
 }
