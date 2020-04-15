@@ -1,6 +1,6 @@
 # Track Covid19
 
-[http://track-covid19.net](http://track-covid19.net)
+[https://track-covid19.net](http://track-covid19.net)
 
 <img src="docs/demo.gif"/>
 
