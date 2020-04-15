@@ -10,23 +10,34 @@ import Menu from "./components/Menu"
 import Summary from "./components/Summary"
 import Details from "./components/Details"
 import Extra from "./components/Extra"
+import News from "./components/News"
 
-function App({ fetchCountries }) {
+function App({ tab, fetchCountries }) {
   useEffect(() => {
     fetchCountries()
   }, [fetchCountries])
 
   return (
-    <div className="App">
-      <Header />
+    <div className={`App ${tab}`}>
       <Menu />
-      <Summary />
-      <Details />
-      <Extra />
+      <Header />
+      {tab === "home" ? (
+        <>
+          <Summary />
+          <Details />
+          <Extra />
+        </>
+      ) : (
+        <News />
+      )}
     </div>
   )
 }
 
+const mapStateToProps = (state) => {
+  return { tab: state.tab.tab }
+}
+
 const mapDispatchToProps = { fetchCountries }
 
-export default connect(null, mapDispatchToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(App)

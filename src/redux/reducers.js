@@ -4,13 +4,13 @@ import {
   SET_SUMMARY,
   UPDATE_REQUEST_STATUS,
   ADD_GRAPH_DATA,
+  SET_TAB,
 } from "./actions"
 
 import { summary, countries } from "../data/summaryFactory"
 import ISOMap from "../data/countryISOCode"
 
 const initialCountries = countries
-// const initialCountries = {}
 const countriesReducer = (state = initialCountries, action) => {
   switch (action.type) {
     case SET_COUNTRIES: {
@@ -23,7 +23,6 @@ const countriesReducer = (state = initialCountries, action) => {
 }
 
 const initialSummary = summary
-// const initialSummary = {}
 const summaryReducer = (state = initialSummary, action) => {
   switch (action.type) {
     case SET_SUMMARY: {
@@ -64,10 +63,23 @@ const isoReducer = (state = initialIso) => {
   return state
 }
 
+const initialTab = { tab: "newsfeed" }
+const tabReducer = (state = initialTab, action) => {
+  switch (action.type) {
+    case SET_TAB: {
+      const { tab } = action.payload
+      return { tab: tab }
+    }
+    default:
+      return state
+  }
+}
+
 export default combineReducers({
   countries: countriesReducer,
   summary: summaryReducer,
   graphData: graphDataReducer,
   requestStatuses: requestStatusReducer,
   iso: isoReducer,
+  tab: tabReducer,
 })

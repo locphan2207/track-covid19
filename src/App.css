@@ -1,10 +1,21 @@
 .App {
   display: grid;
+  height: 100%;
+}
+
+.home {
   grid-template-areas:
     ". header extra"
     "menu summary extra"
     "menu details extra";
   grid-template-columns: min-content 1fr min-content;
   grid-template-rows: min-content min-content 1fr;
-  height: 100%;
+}
+
+.newsfeed {
+  grid-template-areas:
+    ". header"
+    "menu news";
+  grid-template-columns: min-content 1fr;
+  grid-template-rows: min-content 1fr;
 }

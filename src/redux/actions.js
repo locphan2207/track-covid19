@@ -9,6 +9,7 @@ export const UPDATE_COUNTRIES = "UPDATE_COUNTRIES"
 export const SET_SUMMARY = "SET_SUMMARY"
 export const ADD_GRAPH_DATA = "ADD_GRAPH_DATA"
 export const UPDATE_REQUEST_STATUS = "UPDATE_REQUEST_STATUS"
+export const SET_TAB = "SET_TAB"
 
 export const setCountries = (countries) => {
   return {
@@ -51,6 +52,15 @@ export const addGraphData = (data) => {
     type: ADD_GRAPH_DATA,
     payload: {
       ...data,
+    },
+  }
+}
+
+export const setTab = (tab) => {
+  return {
+    type: SET_TAB,
+    payload: {
+      tab,
     },
   }
 }

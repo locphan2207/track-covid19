@@ -1,0 +1,4 @@
+.news {
+  grid-area: news;
+  width: max-content;
+}
