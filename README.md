@@ -16,4 +16,4 @@
 ### Credit:
 
 - Design: https://dribbble.com/shots/10796247-Corona-Covid19-Situation-Live-Board
-- Icons: www.freepik.com
+- Icons: www.freepik.com, https://lottiefiles.com/18168-stay-safe-stay-home
