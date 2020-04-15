@@ -4,7 +4,7 @@ import "./CustomTooltip.css"
 
 import { parseDateForXAxis } from "./Tick"
 
-import { getShortName } from "../helpers"
+import { getShortName } from "helpers"
 
 function CustomTooltip({ payload, country }) {
   if (!payload || !payload.length) return null

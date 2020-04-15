@@ -6,7 +6,7 @@ import "./Details.css"
 import Graph from "./shared/Graph"
 import Map from "./shared/Map"
 
-import { getShortName } from "./helpers"
+import { getShortName } from "helpers"
 
 function Details({ countries }) {
   const searchInput = useRef(null)

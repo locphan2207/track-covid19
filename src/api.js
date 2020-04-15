@@ -3,13 +3,6 @@ const COUNTRY_URL = "https://api.covid19api.com/total/country/" // need country 
 const WHO_RSS = "https://www.who.int/feeds/entity/csr/don/en/rss.xml"
 const CDC_RSS = "https://tools.cdc.gov/api/v2/resources/media/404952.rss"
 
-const corsOptions = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Methods": "DELETE, POST, GET, OPTIONS",
-  "Access-Control-Allow-Headers":
-    "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With",
-}
-
 export const fetchCountriesRequest = async () => {
   const response = await fetch(SUMMARY_URL, {
     method: "GET",
