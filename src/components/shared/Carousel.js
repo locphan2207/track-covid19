@@ -9,8 +9,8 @@ function Carousel({ data }) {
       <p className="carousel-title">{data.title}</p>
       <div className="carousel-container">
         <div className="carousel">
-          {data.items.map((item) => {
-            const titleTokens = item.title.split(" ")
+          {data.items.map((item, idx) => {
+            const titleTokens = item.title ? item.title.split(" ") : []
             const title = `${titleTokens.slice(0, 15).join(" ")}${
               titleTokens.length > 15 ? " ..." : ""
             }`
@@ -19,7 +19,7 @@ function Carousel({ data }) {
               tokens.length > 30 ? " ..." : ""
             }`
             return (
-              <div className="carousel-item" key={item.guid}>
+              <div className="carousel-item" key={item.guid + idx}>
                 <a href={item.link} target="_blank" className="item-link-icon">
                   <i className="flaticon-out" />
                 </a>
